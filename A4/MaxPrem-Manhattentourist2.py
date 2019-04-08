@@ -5,7 +5,7 @@ Manhattan Tourist Problem2
 Max Prem
 ./MaxPrem-Manhattantourist2.py < rmHVD_10_23
 ./MaxPrem-Manhattantourist2.py < rmHVD_999_23
-results: rmHVD_10_23: 13.75; rmHVD_999_23: 1558.02
+results: rmHVD_10_23: 68.18; rmHVD_999_23: 7227.54
 """
 
 import sys
@@ -49,7 +49,8 @@ def MTP(matrix):
     # Compute the interior values.
     for i in range(1, n + 1):
         for j in range(1, m + 1):
-            s[i][j] = round(max(s[i - 1][j] + down[i - 1][j], s[i][j - 1] + right[i][j - 1]), 2)
+            s[i][j] = round(max(s[i - 1][j] + down[i - 1][j], s[i][j - 1] + right[i][j - 1],
+                          s[i - 1][j - 1] + dia[i - 1][j - 1]), 2)
 
     return s[n][m]
 
